@@ -6,86 +6,6 @@
   <title>Absensi Guru | e-Sekolah</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-  <script>
-    let absensiData = [];
-
-    function catatAbsensi(nama) {
-      const waktu = new Date();
-      const jam = waktu.getHours();
-      let status = "Tepat Waktu";
-      let sanksi = "-";
-
-      if (jam >= 7 && jam <= 8) {
-        status = "Terlambat";
-        sanksi = "Teguran";
-      } else if (jam > 8) {
-        status = "Tidak Hadir";
-        sanksi = "Potong Tunjangan";
-      }
-
-      const data = {
-        nama: nama,
-        waktu: waktu.toLocaleString(),
-        jam: waktu.getHours(),
-        tanggal: waktu.toLocaleDateString(),
-        bulan: waktu.getMonth() + 1,
-        tahun: waktu.getFullYear(),
-        status: status,
-        sanksi: sanksi
-      };
-      absensiData.push(data);
-      tampilkanSemua();
-    }
-
-    function tampilkanSemua() {
-      tampilkanRekap("harian", "rekapHarian");
-      tampilkanRekap("bulanan", "rekapBulanan");
-      tampilkanRekap("tahunan", "rekapTahunan");
-    }
-
-    function tampilkanRekap(tipe, elemenId) {
-      const now = new Date();
-      const tbody = document.getElementById(elemenId);
-      tbody.innerHTML = "";
-
-      const dataFilter = absensiData.filter(row => {
-        if (tipe === "harian") {
-          return row.tanggal === now.toLocaleDateString();
-        } else if (tipe === "bulanan") {
-          return row.bulan === now.getMonth() + 1 && row.tahun === now.getFullYear();
-        } else if (tipe === "tahunan") {
-          return row.tahun === now.getFullYear();
-        }
-      });
-
-      dataFilter.forEach((row, i) => {
-        tbody.innerHTML += `
-          <tr>
-            <td>${i + 1}</td>
-            <td>${row.nama}</td>
-            <td>${row.waktu}</td>
-            <td>${row.status}</td>
-            <td>${row.sanksi}</td>
-          </tr>
-        `;
-      });
-    }
-
-    function downloadExcel() {
-      const ws_data = [
-        ["No", "Nama", "Waktu", "Status", "Sanksi"]
-      ];
-
-      absensiData.forEach((row, i) => {
-        ws_data.push([i + 1, row.nama, row.waktu, row.status, row.sanksi]);
-      });
-
-      const wb = XLSX.utils.book_new();
-      const ws = XLSX.utils.aoa_to_sheet(ws_data);
-      XLSX.utils.book_append_sheet(wb, ws, "Rekap Absensi");
-      XLSX.writeFile(wb, "rekap_absensi.xlsx");
-    }
-  </script>
 </head>
 <body>
   <header>
@@ -103,41 +23,60 @@
     </nav>
   </header>
 
-  <main class="container">
-    <h2>Absensi Guru</h2>
-    <div class="form">
-      <label>Nama Guru:
-        <select id="namaGuru">
-          <option value="Ibu Sari">Ibu Sari</option>
-          <option value="Bapak Andi">Bapak Andi</option>
-          <option value="Ibu Rina">Ibu Rina</option>
-        </select>
-      </label>
-      <button onclick="catatAbsensi(document.getElementById('namaGuru').value)">Klik Hadir</button>
-      <button onclick="downloadExcel()">Download Excel</button>
-    </div>
+  <main>
+    <section class="container">
+      <h2>Absensi Guru</h2>
+      <form id="absensiForm">
+        <label for="nama">Nama Guru:</label>
+        <input type="text" id="nama" required />
+        <button type="button" onclick="catatAbsensi()">Klik Hadir</button>
+      </form>
+    </section>
 
-    <section class="rekap">
-      <h3>Rekap Harian (Hari Ini)</h3>
-      <table>
+    <section class="container">
+      <h3>Filter Tanggal:</h3>
+      <input type="date" id="filterTanggal" onchange="tampilkanSemua()" />
+      <button onclick="unduhExcel()">📥 Simpan Excel Workbook</button>
+    </section>
+
+    <section class="container">
+      <h3>Rekap Harian</h3>
+      <table border="1">
         <thead>
-          <tr><th>No</th><th>Nama</th><th>Waktu</th><th>Status</th><th>Sanksi</th></tr>
+          <tr>
+            <th>Nama</th>
+            <th>Jam Hadir</th>
+            <th>Status</th>
+            <th>Sanksi</th>
+          </tr>
         </thead>
         <tbody id="rekapHarian"></tbody>
       </table>
+    </section>
 
-      <h3>Rekap Bulanan (Bulan Ini)</h3>
-      <table>
+    <section class="container">
+      <h3>Rekap Bulanan</h3>
+      <table border="1">
         <thead>
-          <tr><th>No</th><th>Nama</th><th>Waktu</th><th>Status</th><th>Sanksi</th></tr>
+          <tr>
+            <th>Nama</th>
+            <th>Jumlah Hadir</th>
+            <th>Terlambat</th>
+          </tr>
         </thead>
         <tbody id="rekapBulanan"></tbody>
       </table>
+    </section>
 
-      <h3>Rekap Tahunan (Tahun Ini)</h3>
-      <table>
+    <section class="container">
+      <h3>Rekap Tahunan</h3>
+      <table border="1">
         <thead>
-          <tr><th>No</th><th>Nama</th><th>Waktu</th><th>Status</th><th>Sanksi</th></tr>
+          <tr>
+            <th>Nama</th>
+            <th>Jumlah Hadir</th>
+            <th>Terlambat</th>
+          </tr>
         </thead>
         <tbody id="rekapTahunan"></tbody>
       </table>
@@ -147,5 +86,92 @@
   <footer>
     <p>Developed by CV. Mitra Utama Consultindo</p>
   </footer>
+
+  <script>
+    let absensiData = [];
+
+    function catatAbsensi() {
+      const nama = document.getElementById('nama').value.trim();
+      if (!nama) return alert("Isi nama terlebih dahulu!");
+
+      const sekarang = new Date();
+      const jam = sekarang.getHours();
+      const menit = sekarang.getMinutes().toString().padStart(2, '0');
+      const waktu = `${sekarang.getDate()}/${sekarang.getMonth()+1}/${sekarang.getFullYear()} ${jam}:${menit}`;
+      const status = jam < 7 || (jam === 7 && menit <= 15) ? "Tepat Waktu" : "Terlambat";
+      const sanksi = status === "Tepat Waktu" ? "-" : "Teguran";
+
+      absensiData.push({
+        nama,
+        waktu,
+        status,
+        sanksi,
+        tanggal: `${sekarang.getDate()}/${sekarang.getMonth()+1}/${sekarang.getFullYear()}`,
+        bulan: sekarang.getMonth() + 1,
+        tahun: sekarang.getFullYear()
+      });
+
+      document.getElementById("absensiForm").reset();
+      tampilkanSemua();
+    }
+
+    function tampilkanSemua() {
+      const tglFilter = document.getElementById("filterTanggal").value;
+      const hariIni = tglFilter ? new Date(tglFilter) : new Date();
+      const tglStr = `${hariIni.getDate()}/${hariIni.getMonth() + 1}/${hariIni.getFullYear()}`;
+      const bln = hariIni.getMonth() + 1;
+      const thn = hariIni.getFullYear();
+
+      const rekapHarian = absensiData.filter(a => a.tanggal === tglStr);
+      const rekapBulanan = {};
+      const rekapTahunan = {};
+
+      document.getElementById("rekapHarian").innerHTML = rekapHarian.map(a => `
+        <tr>
+          <td>${a.nama}</td>
+          <td>${a.waktu}</td>
+          <td>${a.status}</td>
+          <td>${a.sanksi}</td>
+        </tr>
+      `).join("");
+
+      absensiData.filter(a => a.bulan === bln && a.tahun === thn).forEach(a => {
+        if (!rekapBulanan[a.nama]) rekapBulanan[a.nama] = { hadir: 0, telat: 0 };
+        rekapBulanan[a.nama].hadir++;
+        if (a.status === "Terlambat") rekapBulanan[a.nama].telat++;
+      });
+
+      document.getElementById("rekapBulanan").innerHTML = Object.entries(rekapBulanan).map(([nama, r]) => `
+        <tr>
+          <td>${nama}</td>
+          <td>${r.hadir}</td>
+          <td>${r.telat}</td>
+        </tr>
+      `).join("");
+
+      absensiData.filter(a => a.tahun === thn).forEach(a => {
+        if (!rekapTahunan[a.nama]) rekapTahunan[a.nama] = { hadir: 0, telat: 0 };
+        rekapTahunan[a.nama].hadir++;
+        if (a.status === "Terlambat") rekapTahunan[a.nama].telat++;
+      });
+
+      document.getElementById("rekapTahunan").innerHTML = Object.entries(rekapTahunan).map(([nama, r]) => `
+        <tr>
+          <td>${nama}</td>
+          <td>${r.hadir}</td>
+          <td>${r.telat}</td>
+        </tr>
+      `).join("");
+    }
+
+    function unduhExcel() {
+      const ws = XLSX.utils.json_to_sheet(absensiData);
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, "Absensi");
+      XLSX.writeFile(wb, "rekap_absensi.xlsx");
+    }
+
+    window.onload = tampilkanSemua;
+  </script>
 </body>
 </html>

@@ -197,3 +197,11 @@ th, td {
   background-color: #1565c0;
 }
 
+textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+  min-height: 80px;
+}
+

@@ -1,38 +1,111 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>e-Sekolah | ERP Mini Sekolah</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-</head>
-<body>
+/* ========== FONT & RESET ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
 
-  <header>
-    <h1>e-Sekolah</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">🏠 Beranda</a></li>
-        <li><a href="guru.html">👩‍🏫 Data Guru</a></li>
-        <li><a href="siswa.html">👨‍🎓 Data Siswa</a></li>
-        <li><a href="jadwal.html">🗓️ Jadwal Kelas</a></li>
-        <li><a href="nilai.html">🧾 Nilai & Raport</a></li>
-        <li><a href="absensi.html">📷 Absensi Guru</a></li>
-        <li><a href="laporan.html">📊 Laporan Absensi</a></li>
-        <li><a href="dashboard.html">📁 Dashboard Admin</a></li>
-      </ul>
-    </nav>
-  </header>
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
 
-  <div class="container">
-    <h2 class="section-title">Selamat Datang di Sistem e-Sekolah</h2>
-    <p>Sistem ERP Mini Sekolah untuk mengelola data guru, siswa, jadwal, absensi, nilai, dan laporan.</p>
-  </div>
+/* ========== NAVBAR ========== */
+header {
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 15px 20px;
+}
 
-  <footer>
-    Develop by CV. Mitra Utama Consultindo
-  </footer>
+header h1 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
 
-</body>
-</html>
+nav {
+  margin-top: 10px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #3498db;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #2980b9;
+}
+
+/* ========== CONTAINER ========== */
+.container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* ========== SECTION TITLE ========== */
+.section-title {
+  font-size: 22px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+/* ========== TABLE STYLING ========== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table th,
+table td {
+  padding: 12px 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+table th {
+  background-color: #ecf0f1;
+  font-weight: 600;
+}
+
+/* ========== BUTTONS ========== */
+.btn {
+  padding: 8px 14px;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #219150;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 20px 10px;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+}

@@ -1,3 +1,5 @@
+/* style.css */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,67 +8,67 @@
 }
 
 body {
-  background: #f8f9fa;
+  background-color: #f4f6f9;
   color: #333;
+  font-size: 16px;
 }
 
-/* HEADER */
 header {
   background-color: #2c3e50;
   color: #fff;
-  padding: 20px;
+  padding: 20px 0;
   text-align: center;
 }
 
 header h1 {
-  font-size: 26px;
+  font-size: 28px;
   margin-bottom: 10px;
 }
 
-/* NAV */
 nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 15px;
+  padding: 10px;
+  background-color: #34495e;
 }
 
 nav ul li a {
-  color: #fff;
   text-decoration: none;
-  padding: 10px 15px;
+  color: #fff;
   background: #3498db;
+  padding: 8px 14px;
   border-radius: 5px;
-  transition: 0.3s;
+  transition: all 0.3s;
 }
 
 nav ul li a:hover {
   background-color: #2980b9;
 }
 
-/* CONTAINER */
 .container {
   max-width: 960px;
   margin: 30px auto;
-  background: white;
-  padding: 30px;
+  padding: 20px;
+  background: #fff;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
 .section-title {
-  font-size: 20px;
-  margin-bottom: 20px;
+  font-size: 22px;
+  margin-bottom: 15px;
   border-bottom: 2px solid #3498db;
   padding-bottom: 5px;
 }
 
-/* FOOTER */
 footer {
-  background-color: #2c3e50;
-  color: white;
   text-align: center;
-  padding: 15px;
-  margin-top: 30px;
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 15px 0;
+  margin-top: 40px;
+  font-size: 14px;
 }

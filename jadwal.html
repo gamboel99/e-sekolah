@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jadwal Kelas | e-Sekolah</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>📚 e-Sekolah</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="guru_siswa.html">Data Guru & Siswa</a></li>
+        <li><a href="jadwal.html" class="active">Jadwal Kelas</a></li>
+        <li><a href="nilai.html">Nilai & Raport</a></li>
+        <li><a href="absensi.html">Absensi Guru</a></li>
+        <li><a href="laporan.html">Laporan Absensi</a></li>
+        <li><a href="dashboard.html">Dashboard Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>🗓️ Jadwal Kelas</h2>
+
+    <form class="form-card">
+      <label>Hari:</label>
+      <select required>
+        <option>Senin</option>
+        <option>Selasa</option>
+        <option>Rabu</option>
+        <option>Kamis</option>
+        <option>Jumat</option>
+      </select>
+      <label>Jam:</label>
+      <input type="text" placeholder="07.00 - 08.00" required />
+      <label>Guru:</label>
+      <input type="text" placeholder="Nama Guru" required />
+      <label>Kelas:</label>
+      <input type="text" placeholder="1A / 3B" required />
+      <label>Mata Pelajaran:</label>
+      <input type="text" placeholder="Matematika / PAI" required />
+      <button type="submit">Simpan Jadwal</button>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Hari</th>
+          <th>Jam</th>
+          <th>Guru</th>
+          <th>Kelas</th>
+          <th>Mapel</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Senin</td>
+          <td>07.00 - 08.00</td>
+          <td>Bu Rini</td>
+          <td>3A</td>
+          <td>Matematika</td>
+        </tr>
+        <tr>
+          <td>Senin</td>
+          <td>08.00 - 09.00</td>
+          <td>Pak Andi</td>
+          <td>3A</td>
+          <td>Bahasa Indonesia</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 e-Sekolah. Develop by CV. Mitra Utama Consultindo.</p>
+  </footer>
+</body>
+</html>

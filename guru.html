@@ -1,30 +1,85 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Data Guru | e-Sekolah</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>e-Sekolah | Data Guru & Siswa</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>Data Guru</h1>
+    <h1>e-Sekolah</h1>
     <nav>
-      <a href="index.html">Beranda</a>
-      <a href="guru.html">Data Guru</a>
-      <a href="siswa.html">Data Siswa</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="guru-siswa.html">Data Guru & Siswa</a></li>
+        <li><a href="jadwal.html">Jadwal Kelas</a></li>
+        <li><a href="nilai.html">Nilai & Raport</a></li>
+        <li><a href="absensi.html">Absensi Guru</a></li>
+        <li><a href="laporan.html">Laporan Absensi</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
     </nav>
   </header>
+
   <main>
     <section>
-      <h2>Daftar Guru</h2>
-      <table>
-        <tr><th>Nama</th><th>Mata Pelajaran</th><th>Absensi</th></tr>
-        <tr><td>Ahmad</td><td>Matematika</td><td><button>✅ Hadir</button></td></tr>
-        <tr><td>Siti</td><td>Bahasa Indonesia</td><td><button>✅ Hadir</button></td></tr>
+      <h2>Data Guru</h2>
+      <table border="1" cellpadding="10" cellspacing="0">
+        <tr>
+          <th>No</th>
+          <th>Nama</th>
+          <th>NIP</th>
+          <th>Mapel</th>
+          <th>Email</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Ahmad Subari</td>
+          <td>19780920 200501 1 001</td>
+          <td>Matematika</td>
+          <td>ahmad@sekolah.sch.id</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Siti Nurjanah</td>
+          <td>19851210 200802 2 002</td>
+          <td>Bahasa Indonesia</td>
+          <td>siti@sekolah.sch.id</td>
+        </tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>Data Siswa</h2>
+      <table border="1" cellpadding="10" cellspacing="0">
+        <tr>
+          <th>No</th>
+          <th>Nama</th>
+          <th>NIS</th>
+          <th>Kelas</th>
+          <th>Email</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Rahmat Hidayat</td>
+          <td>20230101</td>
+          <td>5A</td>
+          <td>rahmat@student.sch.id</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Lina Maharani</td>
+          <td>20230102</td>
+          <td>6B</td>
+          <td>lina@student.sch.id</td>
+        </tr>
       </table>
     </section>
   </main>
+
+  <footer>
+    <p>Developed by CV. Mitra Utama Consultindo</p>
+  </footer>
 </body>
 </html>

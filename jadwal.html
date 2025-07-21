@@ -8,74 +8,69 @@
 </head>
 <body>
   <header>
-    <h1>📚 e-Sekolah</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Beranda</a></li>
-        <li><a href="guru_siswa.html">Data Guru & Siswa</a></li>
-        <li><a href="jadwal.html" class="active">Jadwal Kelas</a></li>
-        <li><a href="nilai.html">Nilai & Raport</a></li>
-        <li><a href="absensi.html">Absensi Guru</a></li>
-        <li><a href="laporan.html">Laporan Absensi</a></li>
-        <li><a href="dashboard.html">Dashboard Admin</a></li>
-      </ul>
-    </nav>
+    <div class="container">
+      <h1>e-Sekolah</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="guru-siswa.html">Data Guru & Siswa</a></li>
+          <li><a href="jadwal.html" class="active">Jadwal Kelas</a></li>
+          <li><a href="#">Nilai & Raport</a></li>
+          <li><a href="#">Absensi Guru</a></li>
+          <li><a href="#">Laporan Absensi</a></li>
+          <li><a href="#">Dashboard</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <h2>🗓️ Jadwal Kelas</h2>
+    <div class="container">
+      <h2>🗓️ Jadwal Kelas</h2>
+      <p>Berikut adalah jadwal pelajaran per kelas:</p>
 
-    <form class="form-card">
-      <label>Hari:</label>
-      <select required>
-        <option>Senin</option>
-        <option>Selasa</option>
-        <option>Rabu</option>
-        <option>Kamis</option>
-        <option>Jumat</option>
-      </select>
-      <label>Jam:</label>
-      <input type="text" placeholder="07.00 - 08.00" required />
-      <label>Guru:</label>
-      <input type="text" placeholder="Nama Guru" required />
-      <label>Kelas:</label>
-      <input type="text" placeholder="1A / 3B" required />
-      <label>Mata Pelajaran:</label>
-      <input type="text" placeholder="Matematika / PAI" required />
-      <button type="submit">Simpan Jadwal</button>
-    </form>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Hari</th>
-          <th>Jam</th>
-          <th>Guru</th>
-          <th>Kelas</th>
-          <th>Mapel</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Senin</td>
-          <td>07.00 - 08.00</td>
-          <td>Bu Rini</td>
-          <td>3A</td>
-          <td>Matematika</td>
-        </tr>
-        <tr>
-          <td>Senin</td>
-          <td>08.00 - 09.00</td>
-          <td>Pak Andi</td>
-          <td>3A</td>
-          <td>Bahasa Indonesia</td>
-        </tr>
-      </tbody>
-    </table>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Hari</th>
+            <th>Kelas</th>
+            <th>Mata Pelajaran</th>
+            <th>Waktu</th>
+            <th>Guru</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Senin</td>
+            <td>1A</td>
+            <td>Bahasa Indonesia</td>
+            <td>07:00 - 08:00</td>
+            <td>Ibu Sari</td>
+          </tr>
+          <tr>
+            <td>Senin</td>
+            <td>1A</td>
+            <td>Matematika</td>
+            <td>08:00 - 09:00</td>
+            <td>Pak Rudi</td>
+          </tr>
+          <tr>
+            <td>Selasa</td>
+            <td>1B</td>
+            <td>PAI</td>
+            <td>07:00 - 08:00</td>
+            <td>Ust. Ahmad</td>
+          </tr>
+          <!-- Tambah data lainnya sesuai kebutuhan -->
+        </tbody>
+      </table>
+    </div>
   </main>
 
   <footer>
-    <p>&copy; 2025 e-Sekolah. Develop by CV. Mitra Utama Consultindo.</p>
+    <div class="container">
+      <p>&copy; 2025 e-Sekolah. Developed by <strong>CV. Mitra Utama Consultindo</strong></p>
+    </div>
   </footer>
 </body>
 </html>

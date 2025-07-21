@@ -1,1 +1,138 @@
-<h2>Laporan Absensi</h2><p>Halaman laporan absensi harian/bulanan.</p>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Laporan Absensi | e-Sekolah</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>e-Sekolah</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="guru-siswa.html">Data Guru & Siswa</a></li>
+        <li><a href="jadwal.html">Jadwal Kelas</a></li>
+        <li><a href="nilai.html">Nilai & Raport</a></li>
+        <li><a href="absensi.html">Absensi Guru</a></li>
+        <li><a href="laporan.html" class="active">Laporan Absensi</a></li>
+        <li><a href="#">Dashboard</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Laporan Absensi</h2>
+
+    <div class="filter-container">
+      <label for="tanggal">Filter Tanggal:</label>
+      <input type="date" id="tanggal" />
+      <button onclick="filterTanggal()">Filter</button>
+      <button onclick="exportToExcel()">Simpan ke Excel</button>
+    </div>
+
+    <h3>Rekap Harian</h3>
+    <table id="rekapHarian">
+      <thead>
+        <tr>
+          <th>Tanggal</th>
+          <th>Nama</th>
+          <th>Jam Masuk</th>
+          <th>Status</th>
+          <th>Sanksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2025-07-21</td>
+          <td>Budi Santoso</td>
+          <td>07:10</td>
+          <td>Terlambat</td>
+          <td>Teguran</td>
+        </tr>
+        <tr>
+          <td>2025-07-21</td>
+          <td>Rina Lestari</td>
+          <td>06:55</td>
+          <td>Tepat Waktu</td>
+          <td>-</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Rekap Bulanan</h3>
+    <table id="rekapBulanan">
+      <thead>
+        <tr>
+          <th>Bulan</th>
+          <th>Nama</th>
+          <th>Total Kehadiran</th>
+          <th>Jumlah Terlambat</th>
+          <th>Sanksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Juli 2025</td>
+          <td>Budi Santoso</td>
+          <td>20</td>
+          <td>3</td>
+          <td>Surat Teguran</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Rekap Tahunan</h3>
+    <table id="rekapTahunan">
+      <thead>
+        <tr>
+          <th>Tahun</th>
+          <th>Nama</th>
+          <th>Total Hari Kerja</th>
+          <th>Hadir</th>
+          <th>Terlambat</th>
+          <th>Izin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2025</td>
+          <td>Budi Santoso</td>
+          <td>220</td>
+          <td>210</td>
+          <td>8</td>
+          <td>2</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>Developed by CV. Mitra Utama Consultindo</p>
+  </footer>
+
+  <script>
+    function filterTanggal() {
+      const tanggal = document.getElementById("tanggal").value;
+      alert("Filter berdasarkan tanggal: " + tanggal);
+    }
+
+    function exportToExcel() {
+      const wb = XLSX.utils.book_new();
+
+      const harian = XLSX.utils.table_to_sheet(document.getElementById('rekapHarian'));
+      XLSX.utils.book_append_sheet(wb, harian, 'Rekap Harian');
+
+      const bulanan = XLSX.utils.table_to_sheet(document.getElementById('rekapBulanan'));
+      XLSX.utils.book_append_sheet(wb, bulanan, 'Rekap Bulanan');
+
+      const tahunan = XLSX.utils.table_to_sheet(document.getElementById('rekapTahunan'));
+      XLSX.utils.book_append_sheet(wb, tahunan, 'Rekap Tahunan');
+
+      XLSX.writeFile(wb, "Laporan_Absensi_eSekolah.xlsx");
+    }
+  </script>
+</body>
+</html>

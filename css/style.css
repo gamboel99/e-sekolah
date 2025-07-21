@@ -1,53 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>e-Sekolah | ERP Mini Sekolah</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
-  margin: 0;
-  padding: 0;
-}
+  <header>
+    <h1>e-Sekolah</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">🏠 Beranda</a></li>
+        <li><a href="guru.html">👩‍🏫 Data Guru</a></li>
+        <li><a href="siswa.html">👨‍🎓 Data Siswa</a></li>
+        <li><a href="jadwal.html">🗓️ Jadwal Kelas</a></li>
+        <li><a href="nilai.html">🧾 Nilai & Raport</a></li>
+        <li><a href="absensi.html">📷 Absensi Guru</a></li>
+        <li><a href="laporan.html">📊 Laporan Absensi</a></li>
+        <li><a href="dashboard.html">📁 Dashboard Admin</a></li>
+      </ul>
+    </nav>
+  </header>
 
-header {
-  background-color: #009688;
-  color: white;
-  padding: 1em;
-  text-align: center;
-}
+  <div class="container">
+    <h2 class="section-title">Selamat Datang di Sistem e-Sekolah</h2>
+    <p>Sistem ERP Mini Sekolah untuk mengelola data guru, siswa, jadwal, absensi, nilai, dan laporan.</p>
+  </div>
 
-nav a {
-  margin: 0 15px;
-  color: white;
-  text-decoration: none;
-}
+  <footer>
+    Develop by CV. Mitra Utama Consultindo
+  </footer>
 
-main {
-  padding: 20px;
-}
-
-section {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-table, th, td {
-  border: 1px solid #ddd;
-}
-
-th, td {
-  padding: 10px;
-  text-align: left;
-}
-
-button {
-  padding: 5px 10px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-}
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Guru & Siswa | e-Sekolah</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f8ff;
+    }
+    header {
+      background: #27ae60;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      background: #2ecc71;
+      padding: 0.5rem;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.75rem;
+      text-align: left;
+    }
+    th {
+      background: #ecf0f1;
+    }
+    .btn {
+      background: #3498db;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #27ae60;
+      color: white;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>e-Sekolah - Data Guru & Siswa</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Beranda</a>
+    <a href="data.html">Data Guru & Siswa</a>
+    <a href="jadwal.html">Jadwal Kelas</a>
+    <a href="nilai.html">Nilai & Raport</a>
+    <a href="absensi.html">Absensi Guru</a>
+    <a href="laporan.html">Laporan Absensi</a>
+    <a href="dashboard.html">Dashboard</a>
+  </nav>
+
+  <div class="container">
+    <h2>Data Guru</h2>
+    <table>
+      <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>NIP</th>
+        <th>Jabatan</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Bu Rina</td>
+        <td>19810512</td>
+        <td>Guru Kelas 1</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Pak Bambang</td>
+        <td>19790920</td>
+        <td>Guru Kelas 6</td>
+      </tr>
+    </table>
+
+    <h2>Data Siswa</h2>
+    <table>
+      <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>NIS</th>
+        <th>Kelas</th>
+        <th>Jenis Kelamin</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Ani</td>
+        <td>11201</td>
+        <td>1A</td>
+        <td>Perempuan</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Budi</td>
+        <td>11202</td>
+        <td>1A</td>
+        <td>Laki-laki</td>
+      </tr>
+    </table>
+
+    <button class="btn">+ Tambah Data</button>
+  </div>
+
+  <footer>
+    &copy; 2025 e-Sekolah. Develop by CV. Mitra Utama Consultindo.
+  </footer>
+</body>
+</html>

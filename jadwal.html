@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>e-Sekolah | Jadwal Kelas</title>
+  <title>Jadwal Kelas</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -23,44 +23,58 @@
   </header>
 
   <main>
-    <section class="content">
-      <h2>Jadwal Kelas</h2>
-      <p>Berikut ini adalah jadwal pelajaran mingguan untuk setiap kelas:</p>
+    <section class="container">
+      <h2>Input Jadwal Kelas</h2>
+      <form class="form-jadwal">
+        <label>Hari:</label>
+        <select name="hari">
+          <option value="">-- Pilih Hari --</option>
+          <option>Senin</option>
+          <option>Selasa</option>
+          <option>Rabu</option>
+          <option>Kamis</option>
+          <option>Jumat</option>
+        </select>
 
+        <label>Jam Pelajaran:</label>
+        <input type="text" name="jam" placeholder="Contoh: 07.00 - 08.30">
+
+        <label>Kelas:</label>
+        <input type="text" name="kelas" placeholder="Contoh: 4A, 5B">
+
+        <label>Mata Pelajaran:</label>
+        <input type="text" name="mapel" placeholder="Contoh: IPA, Matematika">
+
+        <label>Nama Guru:</label>
+        <input type="text" name="guru" placeholder="Contoh: Bu Siti, Pak Ahmad">
+
+        <button type="submit">Simpan</button>
+      </form>
+    </section>
+
+    <section class="container">
+      <h2>Tabel Jadwal Kelas</h2>
       <table>
         <thead>
           <tr>
             <th>Hari</th>
-            <th>Kelas 1</th>
-            <th>Kelas 2</th>
-            <th>Kelas 3</th>
-            <th>Kelas 4</th>
-            <th>Kelas 5</th>
-            <th>Kelas 6</th>
+            <th>Jam</th>
+            <th>Kelas</th>
+            <th>Mapel</th>
+            <th>Guru</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Senin</td>
-            <td>PAI, Bahasa Indonesia</td>
-            <td>Matematika, PJOK</td>
-            <td>Bahasa Inggris, PPKn</td>
-            <td>IPA, Bahasa Arab</td>
-            <td>Matematika, IPS</td>
-            <td>Fiqih, Bahasa Indonesia</td>
+            <td>07.00 - 08.30</td>
+            <td>4A</td>
+            <td>IPA</td>
+            <td>Ibu Siti</td>
           </tr>
-          <tr>
-            <td>Selasa</td>
-            <td>Tematik, Seni Budaya</td>
-            <td>PAI, Bahasa Arab</td>
-            <td>IPA, IPS</td>
-            <td>PPKn, Matematika</td>
-            <td>Bahasa Inggris, Bahasa Indonesia</td>
-            <td>Seni Budaya, PJOK</td>
-          </tr>
-          <!-- Tambahkan baris untuk hari lain sesuai kebutuhan -->
         </tbody>
       </table>
+      <button class="btn-download">⬇️ Download Excel</button>
     </section>
   </main>
 

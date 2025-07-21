@@ -205,3 +205,73 @@ textarea {
   min-height: 80px;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f7f9fb;
+}
+
+header {
+  background-color: #1e88e5;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  background-color: #1565c0;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  display: inline-block;
+}
+
+.nav-links a.active, .nav-links a:hover {
+  background-color: #0d47a1;
+  border-radius: 5px;
+}
+
+.container {
+  padding: 20px;
+}
+
+.form {
+  margin: 20px 0;
+}
+
+.rekap {
+  margin-top: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+footer {
+  background-color: #1e88e5;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 40px;
+}
+

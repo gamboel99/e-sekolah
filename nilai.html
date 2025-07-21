@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nilai & Raport</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>e-Sekolah</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="guru-siswa.html">Data Guru & Siswa</a></li>
+        <li><a href="jadwal.html">Jadwal Kelas</a></li>
+        <li><a href="nilai.html" class="active">Nilai & Raport</a></li>
+        <li><a href="absensi.html">Absensi Guru</a></li>
+        <li><a href="laporan.html">Laporan Absensi</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container">
+      <h2>Input Nilai & Raport Siswa</h2>
+      <form class="form-nilai">
+        <label>Nama Siswa:</label>
+        <input type="text" name="nama" placeholder="Contoh: Ahmad, Siti">
+
+        <label>Kelas:</label>
+        <input type="text" name="kelas" placeholder="Contoh: 4A, 5B">
+
+        <label>Mata Pelajaran:</label>
+        <input type="text" name="mapel" placeholder="Contoh: Matematika">
+
+        <label>Nilai:</label>
+        <input type="number" name="nilai" placeholder="Contoh: 85">
+
+        <label>Predikat:</label>
+        <select name="predikat">
+          <option value="">-- Pilih --</option>
+          <option>A</option>
+          <option>B</option>
+          <option>C</option>
+          <option>D</option>
+        </select>
+
+        <label>Catatan Wali Kelas:</label>
+        <textarea name="catatan" placeholder="Contoh: Sangat baik dalam pemahaman materi."></textarea>
+
+        <button type="submit">Simpan</button>
+      </form>
+    </section>
+
+    <section class="container">
+      <h2>Data Nilai Siswa</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>Kelas</th>
+            <th>Mapel</th>
+            <th>Nilai</th>
+            <th>Predikat</th>
+            <th>Catatan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Siti</td>
+            <td>5A</td>
+            <td>Matematika</td>
+            <td>88</td>
+            <td>A</td>
+            <td>Cukup baik dan disiplin</td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn-download">⬇️ Download Excel</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Developed by CV. Mitra Utama Consultindo</p>
+  </footer>
+</body>
+</html>

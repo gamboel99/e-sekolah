@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Absensi Guru | e-Sekolah</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script>
     let absensiData = [];
 
@@ -25,17 +26,39 @@
       const data = {
         nama: nama,
         waktu: waktu.toLocaleString(),
+        jam: waktu.getHours(),
+        tanggal: waktu.toLocaleDateString(),
+        bulan: waktu.getMonth() + 1,
+        tahun: waktu.getFullYear(),
         status: status,
         sanksi: sanksi
       };
       absensiData.push(data);
-      tampilkanAbsensi();
+      tampilkanSemua();
     }
 
-    function tampilkanAbsensi() {
-      const tbody = document.getElementById("rekap");
+    function tampilkanSemua() {
+      tampilkanRekap("harian", "rekapHarian");
+      tampilkanRekap("bulanan", "rekapBulanan");
+      tampilkanRekap("tahunan", "rekapTahunan");
+    }
+
+    function tampilkanRekap(tipe, elemenId) {
+      const now = new Date();
+      const tbody = document.getElementById(elemenId);
       tbody.innerHTML = "";
-      absensiData.forEach((row, i) => {
+
+      const dataFilter = absensiData.filter(row => {
+        if (tipe === "harian") {
+          return row.tanggal === now.toLocaleDateString();
+        } else if (tipe === "bulanan") {
+          return row.bulan === now.getMonth() + 1 && row.tahun === now.getFullYear();
+        } else if (tipe === "tahunan") {
+          return row.tahun === now.getFullYear();
+        }
+      });
+
+      dataFilter.forEach((row, i) => {
         tbody.innerHTML += `
           <tr>
             <td>${i + 1}</td>
@@ -49,16 +72,18 @@
     }
 
     function downloadExcel() {
-      let csv = "No,Nama,Waktu,Status,Sanksi\n";
+      const ws_data = [
+        ["No", "Nama", "Waktu", "Status", "Sanksi"]
+      ];
+
       absensiData.forEach((row, i) => {
-        csv += `${i + 1},${row.nama},${row.waktu},${row.status},${row.sanksi}\n`;
+        ws_data.push([i + 1, row.nama, row.waktu, row.status, row.sanksi]);
       });
-      const blob = new Blob([csv], { type: "text/csv" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "rekap_absensi.csv";
-      a.click();
+
+      const wb = XLSX.utils.book_new();
+      const ws = XLSX.utils.aoa_to_sheet(ws_data);
+      XLSX.utils.book_append_sheet(wb, ws, "Rekap Absensi");
+      XLSX.writeFile(wb, "rekap_absensi.xlsx");
     }
   </script>
 </head>
@@ -80,8 +105,6 @@
 
   <main class="container">
     <h2>Absensi Guru</h2>
-    <p>Silakan klik tombol absensi berdasarkan nama guru di bawah:</p>
-
     <div class="form">
       <label>Nama Guru:
         <select id="namaGuru">
@@ -91,26 +114,34 @@
         </select>
       </label>
       <button onclick="catatAbsensi(document.getElementById('namaGuru').value)">Klik Hadir</button>
+      <button onclick="downloadExcel()">Download Excel</button>
     </div>
 
-    <div class="rekap">
-      <h3>Rekap Absensi</h3>
-      <button onclick="downloadExcel()">Download Excel</button>
+    <section class="rekap">
+      <h3>Rekap Harian (Hari Ini)</h3>
       <table>
         <thead>
-          <tr>
-            <th>No</th>
-            <th>Nama</th>
-            <th>Waktu</th>
-            <th>Status</th>
-            <th>Sanksi</th>
-          </tr>
+          <tr><th>No</th><th>Nama</th><th>Waktu</th><th>Status</th><th>Sanksi</th></tr>
         </thead>
-        <tbody id="rekap">
-          <!-- Data akan muncul di sini -->
-        </tbody>
+        <tbody id="rekapHarian"></tbody>
       </table>
-    </div>
+
+      <h3>Rekap Bulanan (Bulan Ini)</h3>
+      <table>
+        <thead>
+          <tr><th>No</th><th>Nama</th><th>Waktu</th><th>Status</th><th>Sanksi</th></tr>
+        </thead>
+        <tbody id="rekapBulanan"></tbody>
+      </table>
+
+      <h3>Rekap Tahunan (Tahun Ini)</h3>
+      <table>
+        <thead>
+          <tr><th>No</th><th>Nama</th><th>Waktu</th><th>Status</th><th>Sanksi</th></tr>
+        </thead>
+        <tbody id="rekapTahunan"></tbody>
+      </table>
+    </section>
   </main>
 
   <footer>

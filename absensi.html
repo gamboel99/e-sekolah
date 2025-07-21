@@ -6,82 +6,153 @@
   <title>Absensi Guru | e-Sekolah</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .container { max-width: 800px; margin: 20px auto; padding: 20px; background: #fff; border-radius: 10px; }
-    button { padding: 10px 20px; margin: 10px 0; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
-    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-    th, td { padding: 10px; border: 1px solid #ddd; text-align: center; }
-    th { background-color: #f0f0f0; }
-    .late { background-color: #ffcccc; }
-    .on-time { background-color: #ccffcc; }
+    body { font-family: Arial, sans-serif; background-color: #f3f3f3; margin: 0; padding: 20px; }
+    .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; }
+    h2 { margin-top: 40px; }
+    button { padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    input { padding: 8px; width: 50%; border: 1px solid #ccc; border-radius: 5px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    th, td { padding: 10px; border: 1px solid #ccc; text-align: center; }
+    th { background: #f0f0f0; }
+    .late { background-color: #ffd5d5; }
+    .on-time { background-color: #d5ffd5; }
     .warning { color: red; font-weight: bold; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Absensi Guru</h1>
-  </header>
-
-  <main class="container">
-    <h2>Form Absensi Harian</h2>
-    <label for="nama">Nama Guru:</label>
-    <input type="text" id="nama" placeholder="Masukkan nama Anda" />
+  <div class="container">
+    <h1>📍 Absensi Guru e-Sekolah</h1>
+    <label for="nama">Nama Guru:</label><br>
+    <input type="text" id="nama" placeholder="Contoh: Budi Santoso" />
     <br><br>
-    <button onclick="absenMasuk()">📍 Klik Untuk Absen Masuk</button>
-
+    <button onclick="absenMasuk()">Absen Masuk</button>
     <p id="status-absen"></p>
 
-    <table id="rekap-absen">
+    <!-- Tabel Harian -->
+    <h2>📅 Rekap Harian</h2>
+    <table id="rekap-harian">
       <thead>
         <tr>
           <th>No</th>
           <th>Nama</th>
-          <th>Waktu Absen</th>
+          <th>Jam Absen</th>
           <th>Status</th>
           <th>Sanksi</th>
         </tr>
       </thead>
       <tbody></tbody>
     </table>
-  </main>
+
+    <!-- Tabel Bulanan -->
+    <h2>🗓️ Rekap Bulanan</h2>
+    <table id="rekap-bulanan">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Nama</th>
+          <th>Total Kehadiran</th>
+          <th>Total Terlambat</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <!-- Tabel Tahunan -->
+    <h2>📆 Rekap Tahunan</h2>
+    <table id="rekap-tahunan">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Nama</th>
+          <th>Total Kehadiran</th>
+          <th>Total Terlambat</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
 
   <script>
-    let no = 1;
+    let noHarian = 1;
     const batasWaktu = new Date();
-    batasWaktu.setHours(7, 0, 0); // Batas 07:00 WIB
+    batasWaktu.setHours(7, 0, 0);
+
+    const dataBulanan = {};
+    const dataTahunan = {};
 
     function absenMasuk() {
       const nama = document.getElementById("nama").value.trim();
-      const tbody = document.querySelector("#rekap-absen tbody");
+      const tbodyHarian = document.querySelector("#rekap-harian tbody");
       const now = new Date();
       const jam = now.toLocaleTimeString("id-ID");
+      const bulan = now.getMonth() + 1;
+      const tahun = now.getFullYear();
       let status = "Tepat Waktu";
       let sanksi = "-";
 
-      if (now > batasWaktu) {
-        status = "Terlambat";
-        sanksi = "Teguran lisan";
-      }
-
       if (nama === "") {
-        alert("Silakan masukkan nama terlebih dahulu.");
+        alert("Silakan isi nama guru terlebih dahulu.");
         return;
       }
 
-      tbody.innerHTML += `
+      if (now > batasWaktu) {
+        status = "Terlambat";
+        sanksi = "Teguran";
+      }
+
+      // Tampilkan di rekap harian
+      const row = `
         <tr class="${status === 'Terlambat' ? 'late' : 'on-time'}">
-          <td>${no++}</td>
+          <td>${noHarian++}</td>
           <td>${nama}</td>
           <td>${jam}</td>
           <td>${status}</td>
           <td>${sanksi}</td>
         </tr>
       `;
+      tbodyHarian.innerHTML += row;
+
+      // Rekap Bulanan
+      const keyBulan = nama + "_" + bulan + "_" + tahun;
+      if (!dataBulanan[keyBulan]) {
+        dataBulanan[keyBulan] = { nama: nama, hadir: 0, terlambat: 0 };
+      }
+      dataBulanan[keyBulan].hadir++;
+      if (status === "Terlambat") dataBulanan[keyBulan].terlambat++;
+
+      updateTabel("bulanan", dataBulanan);
+
+      // Rekap Tahunan
+      const keyTahun = nama + "_" + tahun;
+      if (!dataTahunan[keyTahun]) {
+        dataTahunan[keyTahun] = { nama: nama, hadir: 0, terlambat: 0 };
+      }
+      dataTahunan[keyTahun].hadir++;
+      if (status === "Terlambat") dataTahunan[keyTahun].terlambat++;
+
+      updateTabel("tahunan", dataTahunan);
 
       document.getElementById("status-absen").innerHTML = `
-        Anda telah absen pada <strong>${jam}</strong> - Status: <span class="${status === 'Terlambat' ? 'warning' : ''}">${status}</span>
+        ✅ Anda telah absen pukul <strong>${jam}</strong> - Status: <span class="${status === 'Terlambat' ? 'warning' : ''}">${status}</span>
       `;
-
       document.getElementById("nama").value = "";
+    }
+
+    function updateTabel(jenis, data) {
+      const tbody = document.querySelector(`#rekap-${jenis} tbody`);
+      tbody.innerHTML = "";
+      let no = 1;
+      for (const key in data) {
+        const d = data[key];
+        tbody.innerHTML += `
+          <tr>
+            <td>${no++}</td>
+            <td>${d.nama}</td>
+            <td>${d.hadir}</td>
+            <td>${d.terlambat}</td>
+          </tr>
+        `;
+      }
     }
   </script>
 </body>

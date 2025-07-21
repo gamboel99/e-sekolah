@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Guru & Siswa | e-Sekolah</title>
+  <title>Data Guru & Siswa</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -23,52 +23,104 @@
   </header>
 
   <main>
-    <section class="container">
-      <h2>Form Input Data Guru</h2>
-      <form>
-        <label>Nama Guru:</label>
-        <input type="text" name="nama_guru" required>
+    <section class="container-row">
+      <div class="form-container">
+        <h2>Input Data Guru</h2>
+        <form>
+          <label>Nama Guru:</label>
+          <input type="text" name="nama_guru">
 
-        <label>NIP:</label>
-        <input type="text" name="nip" required>
+          <label>NIP:</label>
+          <input type="text" name="nip">
 
-        <label>Mata Pelajaran:</label>
-        <input type="text" name="mapel" required>
+          <label>Mata Pelajaran:</label>
+          <input type="text" name="mapel">
 
-        <label>Email:</label>
-        <input type="email" name="email">
+          <label>Email:</label>
+          <input type="email" name="email">
 
-        <label>No HP:</label>
-        <input type="text" name="no_hp">
+          <label>No HP:</label>
+          <input type="text" name="no_hp">
 
-        <button type="submit">Simpan Data Guru</button>
-      </form>
+          <button type="submit">Simpan</button>
+        </form>
+      </div>
+
+      <div class="form-container">
+        <h2>Input Data Siswa</h2>
+        <form>
+          <label>Nama Siswa:</label>
+          <input type="text" name="nama_siswa">
+
+          <label>NIS:</label>
+          <input type="text" name="nis">
+
+          <label>Kelas:</label>
+          <input type="text" name="kelas">
+
+          <label>Jenis Kelamin:</label>
+          <select name="jk">
+            <option value="">-- Pilih --</option>
+            <option value="L">Laki-laki</option>
+            <option value="P">Perempuan</option>
+          </select>
+
+          <label>Nama Orang Tua:</label>
+          <input type="text" name="ortu">
+
+          <button type="submit">Simpan</button>
+        </form>
+      </div>
     </section>
 
     <section class="container">
-      <h2>Form Input Data Siswa</h2>
-      <form>
-        <label>Nama Siswa:</label>
-        <input type="text" name="nama_siswa" required>
+      <h2>Data Guru</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>NIP</th>
+            <th>Mapel</th>
+            <th>Email</th>
+            <th>No HP</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ahmad Zaini</td>
+            <td>1987654321</td>
+            <td>Matematika</td>
+            <td>azaini@mail.com</td>
+            <td>08123456789</td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn-download">⬇️ Download Excel</button>
+    </section>
 
-        <label>NIS:</label>
-        <input type="text" name="nis" required>
-
-        <label>Kelas:</label>
-        <input type="text" name="kelas" required>
-
-        <label>Jenis Kelamin:</label>
-        <select name="jk" required>
-          <option value="">-- Pilih --</option>
-          <option value="L">Laki-laki</option>
-          <option value="P">Perempuan</option>
-        </select>
-
-        <label>Nama Orang Tua:</label>
-        <input type="text" name="ortu" required>
-
-        <button type="submit">Simpan Data Siswa</button>
-      </form>
+    <section class="container">
+      <h2>Data Siswa</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>NIS</th>
+            <th>Kelas</th>
+            <th>JK</th>
+            <th>Orang Tua</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Siti Aisyah</td>
+            <td>23001</td>
+            <td>3B</td>
+            <td>P</td>
+            <td>Abdul Hamid</td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn-download">⬇️ Download Excel</button>
     </section>
   </main>
 

@@ -1,1 +1,88 @@
-<h2>Absensi Guru</h2><p>Halaman absensi guru via klik.</p>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Absensi Guru | e-Sekolah</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .container { max-width: 800px; margin: 20px auto; padding: 20px; background: #fff; border-radius: 10px; }
+    button { padding: 10px 20px; margin: 10px 0; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { padding: 10px; border: 1px solid #ddd; text-align: center; }
+    th { background-color: #f0f0f0; }
+    .late { background-color: #ffcccc; }
+    .on-time { background-color: #ccffcc; }
+    .warning { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Absensi Guru</h1>
+  </header>
+
+  <main class="container">
+    <h2>Form Absensi Harian</h2>
+    <label for="nama">Nama Guru:</label>
+    <input type="text" id="nama" placeholder="Masukkan nama Anda" />
+    <br><br>
+    <button onclick="absenMasuk()">📍 Klik Untuk Absen Masuk</button>
+
+    <p id="status-absen"></p>
+
+    <table id="rekap-absen">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Nama</th>
+          <th>Waktu Absen</th>
+          <th>Status</th>
+          <th>Sanksi</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </main>
+
+  <script>
+    let no = 1;
+    const batasWaktu = new Date();
+    batasWaktu.setHours(7, 0, 0); // Batas 07:00 WIB
+
+    function absenMasuk() {
+      const nama = document.getElementById("nama").value.trim();
+      const tbody = document.querySelector("#rekap-absen tbody");
+      const now = new Date();
+      const jam = now.toLocaleTimeString("id-ID");
+      let status = "Tepat Waktu";
+      let sanksi = "-";
+
+      if (now > batasWaktu) {
+        status = "Terlambat";
+        sanksi = "Teguran lisan";
+      }
+
+      if (nama === "") {
+        alert("Silakan masukkan nama terlebih dahulu.");
+        return;
+      }
+
+      tbody.innerHTML += `
+        <tr class="${status === 'Terlambat' ? 'late' : 'on-time'}">
+          <td>${no++}</td>
+          <td>${nama}</td>
+          <td>${jam}</td>
+          <td>${status}</td>
+          <td>${sanksi}</td>
+        </tr>
+      `;
+
+      document.getElementById("status-absen").innerHTML = `
+        Anda telah absen pada <strong>${jam}</strong> - Status: <span class="${status === 'Terlambat' ? 'warning' : ''}">${status}</span>
+      `;
+
+      document.getElementById("nama").value = "";
+    }
+  </script>
+</body>
+</html>

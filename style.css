@@ -1,48 +1,64 @@
+/* style.css */
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
 }
+
 header {
-  background-color: #0275d8;
+  background-color: #007e6a;
   color: white;
-  padding: 10px 0;
-  text-align: center;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
-nav .nav-links {
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.nav-links {
   list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   padding: 0;
   margin: 0;
-  display: flex;
-  justify-content: center;
-  background-color: #025aa5;
 }
-nav .nav-links li {
-  margin: 0 10px;
-}
-nav .nav-links li a {
+
+.nav-links li a {
   color: white;
   text-decoration: none;
-  padding: 10px 15px;
-  display: block;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  background-color: #00997a;
+  border-radius: 5px;
 }
-nav .nav-links li a:hover {
-  background-color: #014c8c;
+
+.nav-links li a:hover {
+  background-color: #00b492;
 }
+
 main {
-  padding: 20px;
-  background-color: white;
-  margin: 20px auto;
-  max-width: 900px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 2rem;
 }
+
+section {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+}
+
 footer {
-  background-color: #0275d8;
-  color: white;
   text-align: center;
-  padding: 10px 0;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
+  padding: 1rem;
+  background-color: #004d3f;
+  color: white;
+  font-size: 0.9rem;
 }

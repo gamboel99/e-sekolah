@@ -9,19 +9,19 @@
     body {
       margin: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f6f8;
-      color: #333;
+      background-color: #f1f3f6;
+      color: #2c3e50;
     }
 
     header {
-      background-color: #0a3d62;
+      background-color: #002147;
       color: white;
       padding: 20px 0;
       text-align: center;
     }
 
     nav {
-      background-color: #1e3799;
+      background-color: #003366;
     }
 
     .nav-links {
@@ -54,9 +54,10 @@
     }
 
     h2 {
-      color: #0a3d62;
+      color: #002147;
       text-align: center;
       margin-bottom: 40px;
+      font-size: 24px;
     }
 
     .card-grid {
@@ -67,41 +68,43 @@
 
     .card {
       background-color: white;
-      border-left: 8px solid #0a3d62;
-      border-radius: 8px;
+      border-left: 6px solid #002147;
+      border-radius: 10px;
       padding: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      transition: transform 0.3s;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      transition: all 0.3s;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
     }
 
     .card-title {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 600;
-      color: #444;
-      margin-bottom: 10px;
+      color: #2c3e50;
+      margin-bottom: 8px;
     }
 
     .card-value {
-      font-size: 32px;
+      font-size: 28px;
       font-weight: bold;
-      color: #1e3799;
+      color: #003366;
     }
 
     .card-desc {
       font-size: 13px;
-      color: #888;
+      color: #7f8c8d;
+      margin-top: 5px;
     }
 
     footer {
-      background-color: #0a3d62;
+      background-color: #002147;
       color: white;
       text-align: center;
       padding: 15px 0;
       margin-top: 50px;
+      font-size: 14px;
     }
 
     @media screen and (max-width: 600px) {
@@ -116,7 +119,7 @@
 
   <header>
     <h1>Sistem Informasi e-Sekolah</h1>
-    <p>Dashboard Admin | Rekapitulasi Data Sekolah</p>
+    <p style="margin: 5px 0; font-size: 16px;">Dashboard Admin — Rekapitulasi Kegiatan & Data Sekolah</p>
   </header>
 
   <nav>
@@ -132,42 +135,42 @@
   </nav>
 
   <div class="container">
-    <h2>Ringkasan Data Administratif</h2>
+    <h2>Ringkasan Data Administratif Sekolah</h2>
     <div class="card-grid">
       <div class="card">
         <div class="card-title">Jumlah Guru Aktif</div>
         <div class="card-value">12</div>
-        <div class="card-desc">Data terupdate dari sistem</div>
+        <div class="card-desc">Berdasarkan data terbaru sistem</div>
       </div>
 
       <div class="card">
         <div class="card-title">Jumlah Siswa Aktif</div>
         <div class="card-value">124</div>
-        <div class="card-desc">Total siswa semua tingkat</div>
+        <div class="card-desc">Total seluruh jenjang kelas</div>
       </div>
 
       <div class="card">
         <div class="card-title">Jadwal Kelas Hari Ini</div>
         <div class="card-value">6</div>
-        <div class="card-desc">Dari total semua rombel</div>
+        <div class="card-desc">Dijadwalkan berdasarkan rombel</div>
       </div>
 
       <div class="card">
-        <div class="card-title">Absensi Guru Hari Ini</div>
+        <div class="card-title">Presensi Guru Hari Ini</div>
         <div class="card-value">11</div>
-        <div class="card-desc">Sudah melakukan presensi</div>
+        <div class="card-desc">Sudah melakukan absensi</div>
       </div>
 
       <div class="card">
         <div class="card-title">Jumlah Nilai Diinput</div>
         <div class="card-value">87</div>
-        <div class="card-desc">Data nilai dan evaluasi</div>
+        <div class="card-desc">Nilai dan evaluasi siswa</div>
       </div>
 
       <div class="card">
-        <div class="card-title">Keterlambatan Hari Ini</div>
+        <div class="card-title">Keterlambatan Guru</div>
         <div class="card-value">2</div>
-        <div class="card-desc">Guru datang melebihi batas</div>
+        <div class="card-desc">Guru terlambat hari ini</div>
       </div>
     </div>
   </div>

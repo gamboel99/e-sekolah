@@ -6,98 +6,175 @@
   <title>Dashboard Admin | e-Sekolah</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .dashboard-container {
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+    }
+
+    header {
+      background-color: #0a3d62;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #1e3799;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      list-style: none;
+      padding: 10px;
+      margin: 0;
+    }
+
+    .nav-links li {
+      margin: 0 15px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-links a.active, .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
       max-width: 1200px;
       margin: auto;
-      padding: 20px;
+      padding: 30px 20px;
+    }
+
+    h2 {
+      color: #0a3d62;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
     }
 
     .card {
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      background-color: white;
+      border-left: 8px solid #0a3d62;
+      border-radius: 8px;
       padding: 20px;
-      text-align: center;
-      transition: 0.3s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
     }
 
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     }
 
-    .card h3 {
+    .card-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #444;
       margin-bottom: 10px;
-      font-size: 20px;
-      color: #333;
     }
 
-    .card p {
-      font-size: 28px;
-      color: #2d6a4f;
+    .card-value {
+      font-size: 32px;
       font-weight: bold;
+      color: #1e3799;
     }
 
-    .card small {
-      display: block;
-      margin-top: 5px;
-      color: #999;
+    .card-desc {
+      font-size: 13px;
+      color: #888;
+    }
+
+    footer {
+      background-color: #0a3d62;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 50px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>e-Sekolah</h1>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html">Beranda</a></li>
-        <li><a href="guru-siswa.html">Data Guru & Siswa</a></li>
-        <li><a href="jadwal.html">Jadwal Kelas</a></li>
-        <li><a href="nilai.html">Nilai & Raport</a></li>
-        <li><a href="absensi.html">Absensi Guru</a></li>
-        <li><a href="laporan.html">Laporan Absensi</a></li>
-        <li><a href="dashboard.html" class="active">Dashboard</a></li>
-      </ul>
-    </nav>
+    <h1>Sistem Informasi e-Sekolah</h1>
+    <p>Dashboard Admin | Rekapitulasi Data Sekolah</p>
   </header>
 
-  <main class="dashboard-container">
-    <div class="card">
-      <h3>Total Guru</h3>
-      <p>12</p>
-      <small>Guru aktif</small>
-    </div>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="guru-siswa.html">Data Guru & Siswa</a></li>
+      <li><a href="jadwal.html">Jadwal Kelas</a></li>
+      <li><a href="nilai.html">Nilai & Raport</a></li>
+      <li><a href="absensi.html">Absensi Guru</a></li>
+      <li><a href="laporan.html">Laporan Absensi</a></li>
+      <li><a href="dashboard.html" class="active">Dashboard</a></li>
+    </ul>
+  </nav>
 
-    <div class="card">
-      <h3>Total Siswa</h3>
-      <p>124</p>
-      <small>Siswa aktif</small>
-    </div>
+  <div class="container">
+    <h2>Ringkasan Data Administratif</h2>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title">Jumlah Guru Aktif</div>
+        <div class="card-value">12</div>
+        <div class="card-desc">Data terupdate dari sistem</div>
+      </div>
 
-    <div class="card">
-      <h3>Jadwal Hari Ini</h3>
-      <p>6</p>
-      <small>Jadwal kelas berjalan</small>
-    </div>
+      <div class="card">
+        <div class="card-title">Jumlah Siswa Aktif</div>
+        <div class="card-value">124</div>
+        <div class="card-desc">Total siswa semua tingkat</div>
+      </div>
 
-    <div class="card">
-      <h3>Absensi Hari Ini</h3>
-      <p>11</p>
-      <small>Sudah absen</small>
-    </div>
+      <div class="card">
+        <div class="card-title">Jadwal Kelas Hari Ini</div>
+        <div class="card-value">6</div>
+        <div class="card-desc">Dari total semua rombel</div>
+      </div>
 
-    <div class="card">
-      <h3>Total Nilai Diinput</h3>
-      <p>87</p>
-      <small>Data nilai tersimpan</small>
+      <div class="card">
+        <div class="card-title">Absensi Guru Hari Ini</div>
+        <div class="card-value">11</div>
+        <div class="card-desc">Sudah melakukan presensi</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Jumlah Nilai Diinput</div>
+        <div class="card-value">87</div>
+        <div class="card-desc">Data nilai dan evaluasi</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Keterlambatan Hari Ini</div>
+        <div class="card-value">2</div>
+        <div class="card-desc">Guru datang melebihi batas</div>
+      </div>
     </div>
-  </main>
+  </div>
 
   <footer>
-    <p>Developed by CV. Mitra Utama Consultindo</p>
+    <p>&copy; 2025 e-Sekolah. Dikembangkan oleh CV. Mitra Utama Consultindo</p>
   </footer>
+
 </body>
 </html>

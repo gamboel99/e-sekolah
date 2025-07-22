@@ -21,48 +21,40 @@
   </header>
 
   <main>
-    <section class="container">
+    <section class="form-container">
       <h2>Form Input Data Guru & Siswa</h2>
       <form id="guruSiswaForm">
-        <div class="form-grid">
-          <div>
-            <label for="nama">Nama Lengkap:</label>
-            <input type="text" id="nama" required />
-          </div>
-          <div>
-            <label for="nip">NIP/NIS:</label>
-            <input type="text" id="nip" required />
-          </div>
-          <div>
-            <label for="status">Status:</label>
-            <select id="status" required>
-              <option value="">--Pilih--</option>
-              <option value="Guru">Guru</option>
-              <option value="Siswa">Siswa</option>
-            </select>
-          </div>
-          <div>
-            <label for="jk">Jenis Kelamin:</label>
-            <select id="jk" required>
-              <option value="">--Pilih--</option>
-              <option value="Laki-laki">Laki-laki</option>
-              <option value="Perempuan">Perempuan</option>
-            </select>
-          </div>
-          <div>
-            <label for="alamat">Alamat:</label>
-            <input type="text" id="alamat" />
-          </div>
-          <div>
-            <label for="nohp">No. HP:</label>
-            <input type="text" id="nohp" />
-          </div>
-        </div>
+        <label for="nama">Nama Lengkap:</label>
+        <input type="text" id="nama" required />
+
+        <label for="nip">NIP / NIS:</label>
+        <input type="text" id="nip" required />
+
+        <label for="status">Status:</label>
+        <select id="status" required>
+          <option value="">--Pilih--</option>
+          <option value="Guru">Guru</option>
+          <option value="Siswa">Siswa</option>
+        </select>
+
+        <label for="jk">Jenis Kelamin:</label>
+        <select id="jk" required>
+          <option value="">--Pilih--</option>
+          <option value="Laki-laki">Laki-laki</option>
+          <option value="Perempuan">Perempuan</option>
+        </select>
+
+        <label for="alamat">Alamat:</label>
+        <input type="text" id="alamat" />
+
+        <label for="nohp">No. HP:</label>
+        <input type="text" id="nohp" />
+
         <button type="submit">Simpan Data</button>
       </form>
     </section>
 
-    <section class="container">
+    <section class="table-container">
       <h2>Data Tersimpan</h2>
       <table id="tabelData">
         <thead>
@@ -82,7 +74,7 @@
   </main>
 
   <footer>
-    &copy; 2025 e-Sekolah. All rights reserved.
+    <p>&copy; 2025 e-Sekolah. All rights reserved.</p>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>

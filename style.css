@@ -1,13 +1,13 @@
-/* style.css */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
+  background-color: #f5f7fa;
+  color: #2c3e50;
 }
 
+/* HEADER */
 header {
-  background-color: #007e6a;
+  background-color: #003366; /* biru dongker */
   color: white;
   padding: 1rem 2rem;
   display: flex;
@@ -21,6 +21,7 @@ header h1 {
   font-size: 1.8rem;
 }
 
+/* NAVIGATION */
 .nav-links {
   list-style: none;
   display: flex;
@@ -35,14 +36,16 @@ header h1 {
   text-decoration: none;
   font-weight: bold;
   padding: 0.5rem 1rem;
-  background-color: #00997a;
+  background-color: #005a99; /* biru laut */
   border-radius: 5px;
 }
 
-.nav-links li a:hover {
-  background-color: #00b492;
+.nav-links li a:hover,
+.nav-links li a.active {
+  background-color: #0074cc;
 }
 
+/* MAIN CONTENT */
 main {
   padding: 2rem;
 }
@@ -55,44 +58,23 @@ section {
   margin-bottom: 2rem;
 }
 
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #004d3f;
-  color: white;
-  font-size: 0.9rem;
-}
-
-.container-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 20px;
-  padding: 20px;
-}
-
-.form-container {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  width: 45%;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-}
-
+/* FORM */
 form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-form input, form select {
-  padding: 8px;
-  border: 1px solid #ccc;
+form input,
+form select,
+textarea {
+  padding: 10px;
+  border: 1px solid #bbb;
   border-radius: 6px;
 }
 
 form button {
-  background-color: #2e7d32;
+  background-color: #004080;
   color: #fff;
   padding: 10px;
   border: none;
@@ -101,77 +83,33 @@ form button {
 }
 
 form button:hover {
-  background-color: #1b5e20;
+  background-color: #0066cc;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-}
-
-table, th, td {
-  border: 1px solid #ccc;
-}
-
-th, td {
-  padding: 10px;
-  text-align: left;
-}
-
-.btn-download {
-  margin-top: 10px;
-  padding: 10px 16px;
-  background-color: #1976d2;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.btn-download:hover {
-  background-color: #1565c0;
-}
-
-.container {
-  background: #fff;
+/* CONTAINERS */
+.container,
+.container-row,
+.form-container {
+  background: white;
   padding: 20px;
-  margin: 20px auto;
-  width: 90%;
   border-radius: 10px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
 }
 
-.form-jadwal {
+.container-row {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
 }
 
-.form-jadwal input,
-.form-jadwal select {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-.form-jadwal button {
-  background-color: #2e7d32;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.form-jadwal button:hover {
-  background-color: #1b5e20;
-}
-
+/* TABLE */
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
+  background-color: white;
 }
 
 table, th, td {
@@ -180,13 +118,14 @@ table, th, td {
 
 th, td {
   padding: 10px;
-  text-align: left;
+  text-align: center;
 }
 
+/* BUTTONS */
 .btn-download {
   margin-top: 10px;
   padding: 10px 16px;
-  background-color: #1976d2;
+  background-color: #0074cc;
   color: white;
   border: none;
   border-radius: 6px;
@@ -194,84 +133,15 @@ th, td {
 }
 
 .btn-download:hover {
-  background-color: #1565c0;
+  background-color: #005fa3;
 }
 
-textarea {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  resize: vertical;
-  min-height: 80px;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background-color: #f7f9fb;
-}
-
-header {
-  background-color: #1e88e5;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  background-color: #1565c0;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links li {
-  margin: 0 15px;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  padding: 10px;
-  display: inline-block;
-}
-
-.nav-links a.active, .nav-links a:hover {
-  background-color: #0d47a1;
-  border-radius: 5px;
-}
-
-.container {
-  padding: 20px;
-}
-
-.form {
-  margin: 20px 0;
-}
-
-.rekap {
-  margin-top: 30px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
-}
-
-table th, table td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: center;
-}
-
+/* FOOTER */
 footer {
-  background-color: #1e88e5;
-  color: white;
   text-align: center;
   padding: 1rem;
+  background-color: #002b4d; /* biru gelap ASN */
+  color: white;
+  font-size: 0.9rem;
   margin-top: 40px;
 }
-

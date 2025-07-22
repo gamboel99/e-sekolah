@@ -1,1 +1,103 @@
-<h2>Dashboard Admin</h2><p>Ringkasan data dan aktivitas sekolah.</p>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Admin | e-Sekolah</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .dashboard-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+      color: #333;
+    }
+
+    .card p {
+      font-size: 28px;
+      color: #2d6a4f;
+      font-weight: bold;
+    }
+
+    .card small {
+      display: block;
+      margin-top: 5px;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>e-Sekolah</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="guru-siswa.html">Data Guru & Siswa</a></li>
+        <li><a href="jadwal.html">Jadwal Kelas</a></li>
+        <li><a href="nilai.html">Nilai & Raport</a></li>
+        <li><a href="absensi.html">Absensi Guru</a></li>
+        <li><a href="laporan.html">Laporan Absensi</a></li>
+        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="dashboard-container">
+    <div class="card">
+      <h3>Total Guru</h3>
+      <p>12</p>
+      <small>Guru aktif</small>
+    </div>
+
+    <div class="card">
+      <h3>Total Siswa</h3>
+      <p>124</p>
+      <small>Siswa aktif</small>
+    </div>
+
+    <div class="card">
+      <h3>Jadwal Hari Ini</h3>
+      <p>6</p>
+      <small>Jadwal kelas berjalan</small>
+    </div>
+
+    <div class="card">
+      <h3>Absensi Hari Ini</h3>
+      <p>11</p>
+      <small>Sudah absen</small>
+    </div>
+
+    <div class="card">
+      <h3>Total Nilai Diinput</h3>
+      <p>87</p>
+      <small>Data nilai tersimpan</small>
+    </div>
+  </main>
+
+  <footer>
+    <p>Developed by CV. Mitra Utama Consultindo</p>
+  </footer>
+</body>
+</html>

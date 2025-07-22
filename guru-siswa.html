@@ -3,129 +3,112 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Guru & Siswa</title>
+  <title>Data Guru & Siswa | e-Sekolah</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <h1>e-Sekolah</h1>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html">Beranda</a></li>
-        <li><a href="guru-siswa.html" class="active">Data Guru & Siswa</a></li>
-        <li><a href="jadwal.html">Jadwal Kelas</a></li>
-        <li><a href="nilai.html">Nilai & Raport</a></li>
-        <li><a href="absensi.html">Absensi Guru</a></li>
-        <li><a href="laporan.html">Laporan Absensi</a></li>
-        <li><a href="dashboard.html">Dashboard</a></li>
-      </ul>
-    </nav>
+    <ul class="nav-links">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="guru-siswa.html" class="active">Data Guru & Siswa</a></li>
+      <li><a href="jadwal.html">Jadwal Kelas</a></li>
+      <li><a href="nilai.html">Nilai & Raport</a></li>
+      <li><a href="absensi.html">Absensi</a></li>
+      <li><a href="laporan.html">Laporan</a></li>
+      <li><a href="dashboard.html">Dashboard Admin</a></li>
+    </ul>
   </header>
 
   <main>
-    <section class="container-row">
-      <div class="form-container">
-        <h2>Input Data Guru</h2>
-        <form>
-          <label>Nama Guru:</label>
-          <input type="text" name="nama_guru">
-
-          <label>NIP:</label>
-          <input type="text" name="nip">
-
-          <label>Mata Pelajaran:</label>
-          <input type="text" name="mapel">
-
-          <label>Email:</label>
-          <input type="email" name="email">
-
-          <label>No HP:</label>
-          <input type="text" name="no_hp">
-
-          <button type="submit">Simpan</button>
-        </form>
-      </div>
-
-      <div class="form-container">
-        <h2>Input Data Siswa</h2>
-        <form>
-          <label>Nama Siswa:</label>
-          <input type="text" name="nama_siswa">
-
-          <label>NIS:</label>
-          <input type="text" name="nis">
-
-          <label>Kelas:</label>
-          <input type="text" name="kelas">
-
-          <label>Jenis Kelamin:</label>
-          <select name="jk">
-            <option value="">-- Pilih --</option>
-            <option value="L">Laki-laki</option>
-            <option value="P">Perempuan</option>
-          </select>
-
-          <label>Nama Orang Tua:</label>
-          <input type="text" name="ortu">
-
-          <button type="submit">Simpan</button>
-        </form>
-      </div>
+    <section class="container">
+      <h2>Form Input Data Guru & Siswa</h2>
+      <form id="guruSiswaForm">
+        <div class="form-grid">
+          <div>
+            <label for="nama">Nama Lengkap:</label>
+            <input type="text" id="nama" required />
+          </div>
+          <div>
+            <label for="nip">NIP/NIS:</label>
+            <input type="text" id="nip" required />
+          </div>
+          <div>
+            <label for="status">Status:</label>
+            <select id="status" required>
+              <option value="">--Pilih--</option>
+              <option value="Guru">Guru</option>
+              <option value="Siswa">Siswa</option>
+            </select>
+          </div>
+          <div>
+            <label for="jk">Jenis Kelamin:</label>
+            <select id="jk" required>
+              <option value="">--Pilih--</option>
+              <option value="Laki-laki">Laki-laki</option>
+              <option value="Perempuan">Perempuan</option>
+            </select>
+          </div>
+          <div>
+            <label for="alamat">Alamat:</label>
+            <input type="text" id="alamat" />
+          </div>
+          <div>
+            <label for="nohp">No. HP:</label>
+            <input type="text" id="nohp" />
+          </div>
+        </div>
+        <button type="submit">Simpan Data</button>
+      </form>
     </section>
 
     <section class="container">
-      <h2>Data Guru</h2>
-      <table>
+      <h2>Data Tersimpan</h2>
+      <table id="tabelData">
         <thead>
           <tr>
             <th>Nama</th>
-            <th>NIP</th>
-            <th>Mapel</th>
-            <th>Email</th>
-            <th>No HP</th>
+            <th>NIP/NIS</th>
+            <th>Status</th>
+            <th>Jenis Kelamin</th>
+            <th>Alamat</th>
+            <th>No. HP</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>Ahmad Zaini</td>
-            <td>1987654321</td>
-            <td>Matematika</td>
-            <td>azaini@mail.com</td>
-            <td>08123456789</td>
-          </tr>
-        </tbody>
+        <tbody></tbody>
       </table>
-      <button class="btn-download">⬇️ Download Excel</button>
-    </section>
-
-    <section class="container">
-      <h2>Data Siswa</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Nama</th>
-            <th>NIS</th>
-            <th>Kelas</th>
-            <th>JK</th>
-            <th>Orang Tua</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Siti Aisyah</td>
-            <td>23001</td>
-            <td>3B</td>
-            <td>P</td>
-            <td>Abdul Hamid</td>
-          </tr>
-        </tbody>
-      </table>
-      <button class="btn-download">⬇️ Download Excel</button>
+      <button class="btn-download" onclick="exportExcel()">📥 Download Excel Workbook</button>
     </section>
   </main>
 
   <footer>
-    <p>Developed by CV. Mitra Utama Consultindo</p>
+    &copy; 2025 e-Sekolah. All rights reserved.
   </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script>
+    const form = document.getElementById("guruSiswaForm");
+    const tabelBody = document.querySelector("#tabelData tbody");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const nama = document.getElementById("nama").value;
+      const nip = document.getElementById("nip").value;
+      const status = document.getElementById("status").value;
+      const jk = document.getElementById("jk").value;
+      const alamat = document.getElementById("alamat").value;
+      const nohp = document.getElementById("nohp").value;
+
+      const row = tabelBody.insertRow();
+      row.innerHTML = `<td>${nama}</td><td>${nip}</td><td>${status}</td><td>${jk}</td><td>${alamat}</td><td>${nohp}</td>`;
+      form.reset();
+    });
+
+    function exportExcel() {
+      const table = document.getElementById("tabelData");
+      const wb = XLSX.utils.table_to_book(table, { sheet: "DataGuruSiswa" });
+      XLSX.writeFile(wb, "DataGuruSiswa.xlsx");
+    }
+  </script>
 </body>
 </html>
